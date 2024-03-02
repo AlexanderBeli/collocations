@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Search Collocations{% endblock title %}
+{% block content %}
+    <h3>Write the single English word</h3>
+    <form class="d-flex" action="{% url 'result' %}" method='get'>
+        <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+{% endblock content %}

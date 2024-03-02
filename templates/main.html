@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Collocations{% endblock title %}
+{% block content %}
+<div class="container-fluid">
+    <h3>Would you like find all collocations to the single English word?</h3>
+    <p>Press bellow</p>
+    <a class="btn btn-primary" href="{% url 'search' %}">Search collocations</a>
+</div>
+{% endblock content %}
