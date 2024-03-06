@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Dict Page{% endblock title %}
+{% block content %}
+    <h3>Dict Page</h3>
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a class="link-offset-1" href="?page=1">&laquo; first</a>
+            <a class="link-offset-1" href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+            <a class="link-offset-1" href="?page={{ page_obj.next_page_number }}">next</a>
+            <a class="link-offset-1" href="?page={{ page_obj.paginator.num_pages}}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+    {% for el in page_obj %}
+       <p style="height: 0.5rem;"><a class="link-dark link-offset-2 link-underline link-underline-opacity-0" href="/search/result/?q={{ el }}">{{ el }}</a></p>
+    {% endfor %}
+
+    {% for pagenum in page_obj.paginator.get_elided_page_range %}
+        <a class="link-offset-1" href="?page={{ pagenum }}">{{ pagenum }}</a>
+    {% endfor %}
+
+{% endblock content %}

@@ -86,14 +86,21 @@ WSGI_APPLICATION = "django_project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    "default": dj_database_url.config(
-        default='postgres://postgres@db/postgres',
-        conn_max_age=600,
-        ssl_require=env.bool('SSL_REQUIERED', default=True)
-    )
-}
+# DATABASES = {
+#     "default": dj_database_url.config(
+#         default='postgres://postgres@db/postgres',
+#         conn_max_age=600,
+#         ssl_require=env.bool('SSL_REQUIERED', default=True)
+#     )
+# }
 
+# для местного вирт сервера
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
